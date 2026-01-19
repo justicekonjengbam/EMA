@@ -1,0 +1,140 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 10px var(--shadow);
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.desktop-nav {
+  display: none;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 0.6rem 1.2rem;
+  color: var(--text);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.nav-link.active:hover {
+  color: var(--bg);
+}
+
+.theme-toggle-desktop {
+  padding: 0.6rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-desktop:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px) rotate(20deg);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  z-index: 1001;
+  margin-left: auto;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.hamburger span.active:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger span.active:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger span.active:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
+  
+  .theme-toggle-desktop {
+    display: none;
+  }
+}
